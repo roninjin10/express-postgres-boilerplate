@@ -1,11 +1,11 @@
 import express from 'express'
-
 import applyMiddleware from './middleware'
-import router from './router'
+import controller from './controller'
 
 const app = express();
 
 applyMiddleware(app);
-app.use('/', router)
+
+app.use(controller);
 
 export default app;

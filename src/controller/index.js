@@ -1,4 +1,12 @@
+import { Router } from 'express'
 
-const controller = {};
+const router = Router();
 
-export default controller;
+//Homepage Route
+router.get('/', function(req, res){
+    res.status(200).end();
+});
+
+//Other Routes
+
+export default router;
