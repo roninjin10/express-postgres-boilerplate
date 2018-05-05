@@ -1,5 +1,7 @@
+import questionsController from '../controller/questions'
 
 const questionsRouter = (req, res) => {
+  
   const { userid, questionid, comments, answers } = req.query
     
   if (questionid) {
