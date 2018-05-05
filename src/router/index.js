@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import passport from 'passport'
 
 import questionsRouter from './questions'
+import answersRouter from './answers'
 //import controller from '../controller'
 
 const router = Router();
