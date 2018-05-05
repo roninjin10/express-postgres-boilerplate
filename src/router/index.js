@@ -2,6 +2,7 @@ import { Router } from 'express'
 import passport from 'passport'
 
 import questionsRouter from './questions'
+//import answersRouter form './answers'
 //import controller from '../controller'
 
 const router = Router();
@@ -13,7 +14,7 @@ router.post('/sign-in', (req, res) => res.json(3));
 
 
 router.get('/questions', questionsRouter);
-router.get('/answers', answersRouter);
+//router.get('/answers', answersRouter);
 
 //TODO router.post('/comments', (req, res) => res.json(req.path));
 
