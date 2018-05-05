@@ -6,11 +6,7 @@ let users = {will: 'password'};
 
 const isValidPassword = (username, password) => users[username] === password;
 
-passport.serializeUser((user, done) => done(null, user));
-
-passport.deserializeUser((user, done) => done(null, user));
-
-const localStrategy = (username, password, done) => {
+const localStrategy = new LocalStrategy((username, password, done) => {
   if (!(username in users)) {
     return done(null, false, { message: 'Incorrect username'});
   
@@ -19,8 +15,12 @@ const localStrategy = (username, password, done) => {
   }
   
   return done(null, username);
-};
+});
 
-passport.use(new LocalStrategy(localStrategy));
+passport.serializeUser((user, done) => done(null, user));
+
+passport.deserializeUser((user, done) => done(null, user))
+
+passport.use(localStrategy);
 
 export default passport;
