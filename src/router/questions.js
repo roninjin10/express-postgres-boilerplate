@@ -1,4 +1,8 @@
 import questionsController from '../controller/questions'
+<<<<<<< fdf76dda6c06dc28e653c9eb7117a43d0ddbd948
+=======
+
+>>>>>>> merging database
 
 const questionsRouter = (req, res) => {
   
