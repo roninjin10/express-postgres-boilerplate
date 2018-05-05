@@ -2,19 +2,19 @@ import answersController from '../controller/answers'
 
 const answersRouter = (req, res) => {
 
-  const { answerid, userid, answers, comments } = req.query;
+  const { answerid, userid, comments } = req.query;
 
   if(answerid){
       if(comments){
-          answersController.get.commentsByAnswerId(req, res)
+        answersController.get.commentsByAnswerId(req, res)
       } else {
-          answersController.get.answerByAnswerId(req, res)
+        answersController.get.answerByAnswerId(req, res)
       }
   } else if (userid) {
-      answersContoroller.get.answersByUserId(req, res)
+    answersController.get.answersByUserId(req, res)
   } else {
-      answersController.get.allAnswers(req, res)
+    answersController.get.allAnswers(req, res)
   }
 }
 
-export default answersController;
+export default answersRouter;
