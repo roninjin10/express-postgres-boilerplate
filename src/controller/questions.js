@@ -5,19 +5,19 @@ let questionsController = {
 };
 
 questionsController.get.questions = (req, res) => {
-    // questions should have a query string
+    res.send('questionsController.get.questions');
 };
 
 questionsController.get.question = (req, res) => {
-    // question id can be accessed by req.params.qid
+    res.send('questionsController.get.question');
 };
 
 questionsController.post.question = (req, res) => {
-    // should post question
+    res.send('questionsController.post.question');
 };
 
 questionsController.patch.question = (req, res) => {
-    // should patch a question
+    res.send('questionsController.patch.question');
 };
 
 export default questionsController
