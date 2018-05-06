@@ -1,25 +1,27 @@
 import { Router } from 'express'
 
-import questionsRouter from './questions'
-
-//import answersRouter form './answers'
-//import controller from '../controller'
+import user from '../controller/user';
+import questions from '../controller/questions';
+import answers from '../controller/answers';
 
 const router = Router();
 
-router.get('/', (req, res) => res.json(req.query));
-router.post('/sign-up', (req, res) => res.json(2));
-router.post('/sign-in', (req, res) => res.json(3));
-//TODO router.get('/user/', (req, res) => res.json(4));
+router.get('/', (req, res) => res.json('Brandon Can\'t hang'));
 
+// user routes
+router.post('/user/sign-up', user.post.signup);
+router.post('/user/sign-in', user.post.signin);
+router.get('/user/:id', user.get.user);
 
-router.get('/questions', questionsRouter);
-//router.get('/answers', answersRouter);
+// questions
+router.get('/questions', questions.get.questions);
+router.get('/questions/:qid', questions.get.question);
+router.post('/questions', questions.post.question);
 
-//TODO router.post('/comments', (req, res) => res.json(req.path));
-
-router.post('/sign-out', (req, res) => res.json(req.path));
-
+// answers
+router.get('/answers', answers.get.answers);
+router.get('/answers/:qid', answers.get.answer);
+router.post('/answers', answers.post.answer);
 
 export default router
 
