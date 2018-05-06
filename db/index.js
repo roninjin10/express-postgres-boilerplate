@@ -1,35 +1,15 @@
-const debug = require('debug')('sql')
-const chalk = require('chalk')
+//import Sequelize from 'sequelize'
 const Sequelize = require('sequelize')
-const pkg = require('../package.json')
 
-const name = process.env.DATABASE_NAME || pkg.name;
+const DATABASE_URL = process.env.DATABASE_URL || `postgres://jyfijuwsqtxfrs:6e0eaaa37af7af1c9672da1db5539582fa8a54334e073c8af647d196f82ab4c6@ec2-54-83-19-244.compute-1.amazonaws.com:5432/d17n1otdnh0ekk
+`
+const sequelize = new Sequelize(DATABASE_URL);
 
-const url = process.env.DATABASE_URL || `postgres://localhost:5432/${name}`;
-
-console.log(chalk.red(`Opening database connection to ${url}${name}`));
-
-// create the database instance
-const db = module.exports = new Sequelize('catalyst', 'postgres', 'kyle', {
-  logging: debug, // export DEBUG=sql in the environment to get SQL queries
-  dialect: 'postgresql',
-  define: {
-    underscored: true,       // use snake_case rather than camelCase column names
-    freezeTableName: true,   // don't change table names from the one specified
-    timestamps: true,        // automatically include timestamp columns
-  }
-})
-
-// pull in our models
-require('./models')
-
-// sync the db, creating it if necessary
-function sync(retries=0, maxRetries=5) {
-  return db.sync({force:false})
-    .then(ok => console.log(`Synced models to db ${url}`))
-    .catch(fail => {
-      console.log(fail)
-    })
-}
-
-db.didSync = sync()
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
