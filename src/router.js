@@ -1,8 +1,8 @@
 import { Router } from 'express'
 
-import user from '../controller/user';
-import questions from '../controller/questions';
-import answers from '../controller/answers';
+import user from './controller/user';
+import questions from './controller/questions';
+import answers from './controller/answers';
 
 const router = Router();
 
