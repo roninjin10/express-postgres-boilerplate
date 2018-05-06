@@ -3,7 +3,7 @@ import app from '../app'
 
 //Test for GET request for comments by question ID
 it('Routes and controllers for GET requests to /questions', () => {
-
+/*
     test('Should return comments by questionid', () => {
         return request(app).get('/questions/?questionid=1234&comments=true').then(response => {
             // expect(response.body).toBe('These are comments by question id')
@@ -33,6 +33,7 @@ it('Routes and controllers for GET requests to /questions', () => {
             // expect(response.body).toBe('These are all questions')
         })
     });
+    */
 })
 
 
