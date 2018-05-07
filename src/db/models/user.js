@@ -38,9 +38,9 @@ export default (sequelize, DataTypes) => {
       }
     }
   });
-  User.associate = function(models) {
-     User.hasMany(models.Post)
-     User.hasMany(models.Vote)
+  User.associate = function(/*models*/) {
+     // User.hasMany(models.Post)
+     // User.hasMany(models.Vote)
   };
   return User;
 };

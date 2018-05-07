@@ -1,5 +1,5 @@
-import request from 'supertest'
-import app from '../app'
+// import request from 'supertest'
+// import app from '../app'
 
 //Test for GET request for comments by question ID
 describe('Routes and controllers for GET requests to /questions', () => {
