@@ -2,7 +2,7 @@ import request from 'supertest'
 import app from '../app'
 
 //Test for GET request for comments by question ID
-it('Routes and controllers for GET requests to /questions', () => {
+describe('Routes and controllers for GET requests to /questions', () => {
 /*
     test('Should return comments by questionid', () => {
         return request(app).get('/questions/?questionid=1234&comments=true').then(response => {

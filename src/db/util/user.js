@@ -14,5 +14,21 @@ export const fetchUser = (displayName) => User.findOne({
   where: {displayName}
 })
 
-export const verifyPassword = (displayName, password, hashedPassword) => bcrypt.compareAsync(password, hashedPassword)
-  
+const verifyPassword = (password, hashedPassword) => bcrypt.compareAsync(password, hashedPassword)
+
+export async function verifyLogin(displayName, password) {
+  let user = await fetchUser(displayName);
+
+  if (!user) {
+    throw new Error('displayName does not exist');
+  }
+
+  const isMatch = await verifyPassword(password, user.password);
+
+  if (!isMatch) {
+    throw new Error('password is incorrect');
+  }
+
+  delete user.password;
+  return user;
+}
