@@ -1,6 +1,8 @@
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcrypt'
 import Promise from 'bluebird'
-import { User } from '../models'
+import db from '../models'
+
+const User = db.User;
 
 Promise.promisifyAll(bcrypt);
 
@@ -17,8 +19,9 @@ export const fetchUser = (displayName) => User.findOne({
 const verifyPassword = (password, hashedPassword) => bcrypt.compareAsync(password, hashedPassword)
 
 export async function verifyLogin(displayName, password) {
+  
   let user = await fetchUser(displayName);
-
+  
   if (!user) {
     throw new Error('displayName does not exist');
   }
@@ -28,7 +31,7 @@ export async function verifyLogin(displayName, password) {
   if (!isMatch) {
     throw new Error('password is incorrect');
   }
-
+  
   delete user.password;
   return user;
 }
