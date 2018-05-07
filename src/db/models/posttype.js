@@ -1,5 +1,5 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
+
+export default (sequelize, DataTypes) => {
   var PostType = sequelize.define('PostType', {
     name: {
       type: DataTypes.STRING,

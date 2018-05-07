@@ -1,5 +1,5 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
+
+export default (sequelize, DataTypes) => {
   var Vote = sequelize.define('Vote', {
     postId: DataTypes.INTEGER,
     voteTypeId: {

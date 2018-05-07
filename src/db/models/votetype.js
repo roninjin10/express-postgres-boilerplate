@@ -1,5 +1,5 @@
-'use strict';
-module.exports = (sequelize, DataTypes) => {
+
+export default (sequelize, DataTypes) => {
   var VoteType = sequelize.define('VoteType', {
     name: {
       type: DataTypes.STRING,
