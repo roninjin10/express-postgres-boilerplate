@@ -18,7 +18,7 @@ export const fetchUser = (displayName) => User.findOne({
 
 const verifyPassword = (password, hashedPassword) => bcrypt.compareAsync(password, hashedPassword)
 
-export async function verifyLogin(displayName, password) {
+export const verifyLogin = async (displayName, password) => {
   
   let user = await fetchUser(displayName);
   
