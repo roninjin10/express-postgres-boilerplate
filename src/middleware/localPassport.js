@@ -1,7 +1,7 @@
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 
-import { verifyLogin } from '../models/util/user'
+import { verifyLogin } from '../db/util/user'
 
 const localStrategy = (displayName, password, done) => 
   verifyLogin(displayName, password)
