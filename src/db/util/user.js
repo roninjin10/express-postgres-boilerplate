@@ -35,3 +35,8 @@ export const verifyLogin = async (displayName, password) => {
   delete user.password;
   return user;
 }
+
+export const queryUsers = (query) => User.findAll({
+  where: query,
+  include: [{all: true}]
+});
