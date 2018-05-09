@@ -4,7 +4,7 @@ export const getAllPosts = () => Post.findAll({
   include: [{all: true}]
 });
 
-export const getPostByType = (type) => Post.findAll({
+export const getPostsByType = (type) => Post.findAll({
   where: {type}
 });
 
