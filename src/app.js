@@ -6,7 +6,6 @@ import router from './router'
 const app = express();
 
 applyMiddleware(app);
-
 app.use(router);
 
 export default app;
