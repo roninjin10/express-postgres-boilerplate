@@ -8,10 +8,12 @@ export const getPostByType = (type) => Post.findAll({
   where: {type}
 });
 
-export const createNewPost = (title, body, type) => Post.create({
+export const createNewPost = (userid, title, body, type, postref) => Post.create({
+  userid,
   title,
   body,
-  type
+  type,
+  postref
 });
 
 

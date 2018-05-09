@@ -1,5 +1,12 @@
 export default (sequelize, DataTypes) => {
   var Post = sequelize.define('Post', {
+    postref: {
+      type: DataTypes.INTEGER,
+    },
+    userid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,12 +31,14 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       defaultValue: 'comment'
     }
-  })
+  });
 
   Post.associate = (models) => {
     Post.belongsTo(models.User);
-  }
+    Post.belongsTo(models.Post);
+    Post.hasMany(models.Post);
+  };
 
-  return Post
+  return Post;
 
 }
