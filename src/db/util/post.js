@@ -16,4 +16,4 @@ export const createNewPost = (userid, title, body, type, postref) => Post.create
   postref
 });
 
-
+export const getPostById = (postId) => Post.findById(postId);
