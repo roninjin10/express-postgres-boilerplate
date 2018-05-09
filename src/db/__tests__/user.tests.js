@@ -6,7 +6,8 @@ const User = db.User;
 const clearDatabase = (done) => {
   User.destroy({
     where: {},
-    truncate: true
+    truncate: true,
+    cascade: true,
   })
   .finally(done);
 }
