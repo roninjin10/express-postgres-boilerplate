@@ -1,8 +1,8 @@
 import { Router } from 'express'
 
 import user from './controller/user';
-import questions from './controller/questions';
-import answers from './controller/answers';
+import questions from './controller/question';
+// import answers from './controller/answers';
 
 const router = Router();
 
@@ -18,9 +18,9 @@ router.get('/questions', questions.get.questions);
 router.get('/questions/:qid', questions.get.question);
 router.post('/questions', questions.post.question);
 
-router.get('/answers', answers.get.answers);
-router.get('/answers/:aid', answers.get.answer);
-router.post('/answers', answers.post.answer);
+// router.get('/answers', answers.get.answers);
+// router.get('/answers/:aid', answers.get.answer);
+// router.post('/answers', answers.post.answer);
 
 export default router
 
