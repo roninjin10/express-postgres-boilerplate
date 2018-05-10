@@ -3,10 +3,11 @@ import { Strategy as LocalStrategy } from 'passport-local'
 
 import { verifyLogin } from '../db/util/user'
 
-const localStrategy = (displayName, password, done) => 
-  verifyLogin(displayName, password)
+const localStrategy = (displayName, password, done) => {
+  return verifyLogin(displayName, password)
   .then((user) => done(null, user))
   .catch((err) => done(null, false, err));
+}
 
 passport.serializeUser((user, done) => done(null, user));
 
