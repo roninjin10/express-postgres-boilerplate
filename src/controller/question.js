@@ -1,4 +1,4 @@
-import { postsByType, postsById, newPost } from './post'
+import { postsByType, postById, newPost } from './post'
 
 const TYPE = 'Question';
 
@@ -14,6 +14,6 @@ question.get.questions.all = postsByType(TYPE);
 
 question.post.question = newPost(TYPE);
 
-question.get.question.id = postsById(TYPE);
+question.get.question = postById(TYPE);
 
 export default question
