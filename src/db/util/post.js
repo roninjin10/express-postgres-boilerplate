@@ -1,11 +1,15 @@
-import Post from '../post.js'
+import Post from '../models/post.js'
 
 export const getAllPosts = () => Post.findAll({
   include: [{all: true}]
 });
 
-export const getPostByType = (type) => Post.findAll({
+export const getPostsByType = (type) => Post.findAll({
   where: {type}
+});
+
+export const getPostsByQuery = (query) => Post.findAll({
+  where: query
 });
 
 export const createNewPost = (userid, title, body, type, postref) => Post.create({

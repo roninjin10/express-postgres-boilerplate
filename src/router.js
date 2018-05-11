@@ -1,8 +1,9 @@
 import { Router } from 'express'
 
-import user from './controller/user';
-import questions from './controller/questions';
-import answers from './controller/answers';
+import user from './controller/user'
+import question from './controller/question'
+import answer from './controller/answer'
+import { byQuery } from './controller/post'
 
 const router = Router();
 
@@ -12,15 +13,17 @@ router.post('/user/signup', user.post.signup);
 router.post('/user/login', user.post.login);
 router.post('/user/logout', user.post.logout);
 
-// router.get('/user/:uid', user.get.user);
+router.get('/post', byQuery);
 
-router.get('/questions', questions.get.questions);
-router.get('/questions/:qid', questions.get.question);
-router.post('/questions', questions.post.question);
+router.get('/questions/all', question.get.questions.all);
+router.get('/questions', question.get.questions);
+router.get('/questions/:qid', question.get.question);
+router.post('/question', question.post.question);
 
-router.get('/answers', answers.get.answers);
-router.get('/answers/:aid', answers.get.answer);
-router.post('/answers', answers.post.answer);
+router.get('/answers/all', answer.get.answers.all);
+router.get('/answers', answer.get.answers);
+router.get('/answers/:aid', answer.get.answer);
+router.post('/answer', answer.post.answer);
 
 export default router
 
