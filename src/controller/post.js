@@ -1,4 +1,4 @@
-import { getAllPosts, getPostsByType, createNewPost, getPostById } from '../db/util/post'
+import { getAllPosts, getPostsByType, createNewPost, getPostById, getPostsByQuery } from '../db/util/post'
 
 const PostTypeError = (expectedType, type) => 
   Error(`expected post of type ${expectedType} got a post of type ${type}`);
@@ -6,6 +6,11 @@ const PostTypeError = (expectedType, type) =>
 // may never get used
 export const allPosts = (req, res) => 
   getAllPosts().then((posts) => res.json(posts));
+
+export const byQuery = (req, res) => 
+  getPostsByQuery(req.query)
+  .then((posts) => res.json(posts))
+  .catch((err) => res.status(401).json({err}));
 
 export const postsByType =(postType) => (req, res) => 
   getPostsByType(postType)
@@ -34,6 +39,3 @@ export const newPost  = (postType) => (req, res) => {
       err
   }));
 }
-
-
-export default post

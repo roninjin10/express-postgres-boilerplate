@@ -1,4 +1,4 @@
-import { getAllPosts, getPostsByType, createNewPost, getPostById } from '../db/util/post'
+import { postsByType, postsById, newPost } from './post'
 
 const TYPE = 'Question';
 
@@ -8,28 +8,12 @@ let question = {
   patch: {}
 };
 
-question.get.questions = (req, res) => 
-  getPostsByType(TYPE)
-  .then((posts) => res.json(posts));
+question.get.questions = (req, res) => res.end('TODO for machine learning');
 
+question.get.questions.all = postsByType(TYPE);
 
-question.get.question = (req, res) => 
-  getPostById(req.params.qid)
-  .then((post) => res.json(post));
+question.post.question = newPost(TYPE);
 
-
-question.post.question = (req, res) => {
-  const { userid, title, body, type, postref } = req.body;
-  
-  createNewPost(userid, title, body, type, postref)
-  .then(() => res.status(201).send('post successful'))
-  .catch((err) => res.status(401).json({
-      message: 'there was an error posting question',
-      err
-  }));
-}
-
-// TODO controller.patch.question
-// TODO refactor into posts that can be used for all 3
+question.get.question.id = postsById(TYPE);
 
 export default question
