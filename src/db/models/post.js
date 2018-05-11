@@ -1,7 +1,8 @@
 export default (sequelize, DataTypes) => {
   var Post = sequelize.define('Post', {
-    postref: {
+    postrefId: {
       type: DataTypes.INTEGER,
+      allowNull: true
     },
     userid: {
       type: DataTypes.INTEGER,
