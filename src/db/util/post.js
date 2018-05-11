@@ -23,6 +23,3 @@ export const createNewPost = (userid, title, body, type, postref) => Post.create
 });
 
 export const getPostById = (postId) => Post.findById(postId);
-
-console.log('post', Post);
-createNewPost(1, 'this is a title', 'this ias a body', 'Question', 2);
