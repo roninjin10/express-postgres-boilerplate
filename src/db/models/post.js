@@ -52,12 +52,12 @@ export default (sequelize, DataTypes) => {
     where: query
   });
 
-  Post.createNewPost = ({userid, title, body, type, postref}) => Post.create({
+  Post.createNewPost = ({userid, title, body, type, associatedQuestionId}) => Post.create({
     userid,
     title,
     body,
     type,
-    postRefId: postref
+    associatedQuestionId: associatedQuestionId
   });
 
   Post.getPostById = (postId) => Post.findById(postId);
