@@ -4,7 +4,7 @@ import { Strategy as LocalStrategy } from 'passport-local'
 import { User } from '../../db/models'
 
 const localStrategy = (username, password, done) => {
-  return verifyLogin(username, password)
+  return User.verifyLogin(username, password)
   .then((user) => done(null, user))
   .catch((err) => done(null, false, err));
 }

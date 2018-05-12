@@ -9,7 +9,7 @@ let controller = {
 };
 
 controller.post.signup = (req, res) => {
-  return createUser(req.body)
+  return User.createUser(req.body)
     .then(() => {
       req.login(req.body, (err) => {
         if (err) {

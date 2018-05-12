@@ -5,20 +5,20 @@ const PostTypeError = (expectedType, type) =>
 
 // may never get used
 export const allPosts = (req, res) => 
-  getAllPosts().then((posts) => res.json(posts));
+  Post.getAllPosts().then((posts) => res.json(posts));
 
 export const byQuery = (req, res) => 
-  getPostsByQuery(req.query)
+  Post.getPostsByQuery(req.query)
   .then((posts) => res.json(posts))
   .catch((err) => res.status(401).json({err}));
 
 export const postsByType =(postType) => (req, res) => 
-  getPostsByType(postType)
+  Post.getPostsByType(postType)
   .then((posts) => res.json(posts));
 
 
 export const postById = (postType) => (req, res) => 
-  getPostById(req.params.qid)
+  Post.getPostById(req.params.qid)
   .then((post) => {
     if (post.type !== postType) {
       throw new PostTypeError(postType, post.type);
@@ -32,7 +32,7 @@ export const newPost  = (postType) => (req, res) => {
   if (type !== type) {
     throw new PostTypeError(postType, type);
   }
-  createNewPost(userid, title, body, type, postref)
+  Post.createNewPost(userid, title, body, type, postref)
   .then(() => res.status(201).send('post successful'))
   .catch((err) => res.status(401).json({
       message: 'there was an error posting question',
