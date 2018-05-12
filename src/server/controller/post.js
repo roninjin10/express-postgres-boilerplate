@@ -1,4 +1,4 @@
-import { getAllPosts, getPostsByType, createNewPost, getPostById, getPostsByQuery } from '../db/util/post'
+import { Post } from '../../db/models'
 
 const PostTypeError = (expectedType, type) => 
   Error(`expected post of type ${expectedType} got a post of type ${type}`);

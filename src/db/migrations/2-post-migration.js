@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      postRefId: {
+      postref: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
@@ -44,11 +44,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       createdAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE
       },
       commentCount: {
