@@ -25,19 +25,19 @@ const postData = [
     type: 'Question'
   },
   {
-    postref: 1,
+    associatedQuestionId: 1,
     userid: 5,
     body: "I am the answer of question number 1.",
     type: 'Answer'
   },
   {
-    postref: 2,
+    associatedQuestionId: 2,
     userid: 6,
     body: "I am the answer of question number 2.",
     type: 'Answer'
   },
   {
-    postref: 3,
+    associatedQuestionId: 3,
     userid: 7,
     body: "I am the answer of question number 3.",
     type: 'Answer'

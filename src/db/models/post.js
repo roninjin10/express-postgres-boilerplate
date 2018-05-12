@@ -1,6 +1,6 @@
 export default (sequelize, DataTypes) => {
   const Post = sequelize.define('Post', {
-    postref: {
+    associatedQuestionId: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
