@@ -26,8 +26,8 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: {
-          args: [8, 2000],
-          msg: 'Please enter a password with at least 8 characters'
+          args: [3, 2000],
+          msg: 'Please enter a password with at least 3 characters'
         }
       }
     },
