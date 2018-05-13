@@ -1,13 +1,12 @@
 {
-  "name": "express-babel",
-  "version": "1.0.0",
-  "description": "Using latest JavaScript features on the server",
+  "name": "Fantasy Stack",
+  "version": "0.0.0",
+  "description": "a next generation fantasy optimizer site",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vmasto/express-babel.git"
+    "url": ""
   },
-  "author": "Vassilis Mastorostergios <vmasto@gmail.com>",
-  "license": "MIT",
+  "author": "William Cory <willcory10@gmail.com>",
   "main": "dist/server/index.js",
   "engines": {
     "node": "~8.9.4",
@@ -25,14 +24,7 @@
   "keywords": [
     "express",
     "babel",
-    "boilerplate",
-    "scaffold",
-    "es6",
-    "es2015",
-    "es2016",
-    "es2017",
-    "jest",
-    "eslint"
+    "jest"
   ],
   "dependencies": {
     "babel-cli": "^6.26.0",

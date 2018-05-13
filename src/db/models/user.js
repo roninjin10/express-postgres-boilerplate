@@ -1,7 +1,4 @@
-import bcrypt from 'bcrypt';
-import Promise from 'bluebird'
-
-Promise.promisifyAll(bcrypt);
+import bcrypt from 'bcrypt'
 
 export default (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -32,25 +29,22 @@ export default (sequelize, DataTypes) => {
       }
     },
   }, {
-    /*
-     *  this hook is making sure we encrypt the password before storing in database
-     */
     hooks: {
       afterValidate: (user) => {
-        user.password = bcrypt.hashSync(user.password, 8);
+        user.password = bcrypt.hashSync(user.password, 8)
       }
     }
-  });
+  })
   
   User.associate = function(models) {
-    User.hasMany(models.Post);
-  };
+    User.hasMany(models.Post)
+  }
   
-  User.createUser = (newUser) => User.create(newUser);
+  User.createUser = (newUser) => User.create(newUser)
 
   User.destroyUser = (username) => User.destroy({
     where: {username}
-  });
+  })
 
   User.fetchUser = (username) => User.findOne({
     where: {username}
@@ -60,29 +54,26 @@ export default (sequelize, DataTypes) => {
 
   User.verifyLogin = async (username, password) => {
     
-    let user = await User.fetchUser(username);
+    let user = await User.fetchUser(username)
     
     if (!user) {
-      throw new Error('username does not exist');
+      throw new Error('username does not exist')
     }
 
-    const isMatch = await User.verifyPassword(password, user.password);
+    const isMatch = await User.verifyPassword(password, user.password)
 
     if (!isMatch) {
-      throw new Error('password is incorrect');
+      throw new Error('password is incorrect')
     }
     
-    delete user.password;
-    return user;
+    delete user.password
+    return user
   }
 
   User.queryUsers = (query) => User.findAll({
     where: query,
     include: [{all: true}]
-  });
-
-
-
+  })
   
-  return User;
-};
+  return User
+}
